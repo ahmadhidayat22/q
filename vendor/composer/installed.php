@@ -3,7 +3,7 @@
         'name' => 'codeigniter/framework',
         'pretty_version' => 'dev-money-tracker',
         'version' => 'dev-money-tracker',
-        'reference' => '9a8f622c690588635727bd49e4a6a283ce2f3853',
+        'reference' => '7d57bdedbe5720fb29e2af7d751cf0fa4b5f552d',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'codeigniter/framework' => array(
             'pretty_version' => 'dev-money-tracker',
             'version' => 'dev-money-tracker',
-            'reference' => '9a8f622c690588635727bd49e4a6a283ce2f3853',
+            'reference' => '7d57bdedbe5720fb29e2af7d751cf0fa4b5f552d',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

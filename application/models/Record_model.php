@@ -8,7 +8,7 @@ class Record_model extends CI_Model {
     public function __construct() {
         $this->client = new Client([
             // TODO: Tambahkan Base URL API
-            'base_uri' => "base_url_backend_Anda",
+            'base_uri' => "http://localhost:3000",
         ]);
     }
 
@@ -55,10 +55,27 @@ class Record_model extends CI_Model {
             $amount = $amount * -1;
         }
 
-        $files;
-        if ($_FILES['attachment']['tmp_name'] !== "") {
+        $attachment = null;
+        if (!empty($_FILES['attachment']['name'])) {
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 2048;
+            $config['file_name']            = time() . '_' . $_FILES['attachment']['name'];
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('attachment')) {
+                $attachment = $this->upload->data('file_name');
+            } else {
+                $attachment = null;
+            }
+        }
+        $files= null;
+        if (!empty($_FILES['attachment']['tmp_name'])) {
             $files = fopen($_FILES['attachment']['tmp_name'], 'r');
         }
+        error_log(print_r($files, true));
+        
 
         $response = $this->client->request('POST', '/insertrecord', [
             'multipart' => [
@@ -88,7 +105,6 @@ class Record_model extends CI_Model {
 
         return $result;
     }
-
     public function updateRecord($id) {
         $type = $this->input->post('recordtype');
         $amount = $this->input->post('amount');

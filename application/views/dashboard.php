@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Dashboardawd</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?php echo base_url(); ?>assets/css/font-face.css" rel="stylesheet" media="all">
@@ -38,6 +38,7 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
+        <?php echo base_url(); ?>
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
